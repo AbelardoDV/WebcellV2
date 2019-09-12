@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+
+
+
+
+  <link rel="icon" href="src/favicon.ico">
+  <meta name="google-site-verification" content="mkcHr2SP0GnotD8fzNPbWjMZ_1ytFOP_so_y_cYnUjw" />
+  <title>MAPA WEB NPO PERU 2019</title>
+  <!--Searcher-->
+  <link rel="stylesheet" href="src/leaflet-search.css" />
+  
+  <!-- jQuery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Leaflet (CSS and JS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
+
+
+  <!--Regla-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/gokertanrisever/leaflet-ruler/master/src/leaflet-ruler.css">
+
+  
+  <!-- leaflet-providers -->
+  <script src="scripts/leaflet-providers/leaflet-providers.js"></script>
+
+  <!-- Tabletop -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.js"></script>
+
+  <!-- Font Awesome -->
+  <script src="https://use.fontawesome.com/77cd9dd4f5.js"></script>
+
+  <!-- Leaflet.awesome-markers -->
+  <link rel="stylesheet" type="text/css" href="scripts/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css">
+  <script type="text/javascript" src="scripts/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js"></script>
+
+ <!-- Markercluster -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.4/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.4/dist/MarkerCluster.Default.css">
+  <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.4/dist/leaflet.markercluster.js"></script>
+
+  <!-- Mapzen
+  <link rel="stylesheet" href="scripts/leaflet-geocoder/leaflet-geocoder-mapzen.css">
+  <script src="scripts/leaflet-geocoder/leaflet-geocoder-mapzen.js"></script>
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@latest/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet-control-geocoder@latest/dist/Control.Geocoder.js"></script>
+
+  <!-- Locate Control -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.60.0/L.Control.Locate.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.60.0/L.Control.Locate.min.js"></script>
+
+  <!-- jQuery-CSV -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+
+  <!-- Custom style sheet -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Layer Support for Marker Cluster -->
+  <script src="https://unpkg.com/leaflet.markercluster.layersupport@1.0.3/dist/leaflet.markercluster.layersupport.js"></script>
+
+  <!-- DataTables -->
+  <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+  
+  
+    <!--Control que añade marker en la coordenada que deseas -->
+    <script type="text/javascript" src="dist_marker_coordenadas/Leaflet.Coordinates-0.1.3.min.js"></script>
+    <link rel="stylesheet" href="dist_marker_coordenadas/Leaflet.Coordinates-0.1.3.css"/>
+  <!-- Script necesarios para el perfil de elevacion -->
+  
+  <script src="dist_elevation/d3.v3.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="dist_elevation/leaflet.elevation-0.0.4.css" />
+  <script type="text/javascript" src="dist_elevation/leaflet.elevation-0.0.4.min.js"></script>
+  
+</head>
+
+<body>
+  
+  
+  <div class="loader">Cargando...</div>
+  <div id="map"></div>
+  <table id="maptable" class="display"></table>
+
+  <!--Regla-->
+  <script src="https://cdn.rawgit.com/gokertanrisever/leaflet-ruler/master/src/leaflet-ruler.js"></script>
+  
+  <script type="text/javascript">
+    var map = L.map('map', {
+      attributionControl: false,
+      zoomControl: false,
+      scrollWheelZoom: true,
+      dragging: true,
+      zoomSnap: 0.1,
+      zoomDelta: 0.1,
+      maxZoom: 20,
+      maxNativeZoom: 18
+    }).setView([-12.0431800,-77.0282400], 3); // default center is overridden by Google Sheet options and points
+    
+    L.control.ruler().addTo(map); //Regla  
+    
+    L.Control.geocoder().addTo(map);// Añadiendo el geocoder
+    
+    console.log([[-77.081368,-12.068799,69.462],[-77.07822666732446,-12.06884391089815,72.8566],[-77.07429999999999,-12.0689,81.04914]]);
+    var variables = [];
+    uno = [1,2,3]
+    dos = [4,5,6]
+    tres = [7,8,9]
+    variables.push(uno);
+        variables.push(dos);
+            variables.push(tres);
+    
+    console.log(variables);
+    
+
+  </script>
+
+	  
+  <!--
+  <script src="GRATICULE/Leaflet.Graticule.js"></script>
+	
+<script>
+	    	L.latlngGraticule({
+			showLabel: true,
+			color: '#222',
+			zoomInterval: [
+				{start: 2, end: 3, interval: 30},
+				{start: 4, end: 4, interval: 10},
+				{start: 5, end: 11, interval: 2},
+				{start: 11, end: 15, interval: 0.005}
+			]
+		}).addTo(map); // Grilla
+	</script>
+	
+	Graticule       Apagado "mostrar menos decimales y longitud que se dibuje hacia arriba"   -->
+  <script type="text/javascript" src="google-doc-url.js"></script>
+  <script type="text/javascript" src="scripts/constants.js"></script>
+  <script type="text/javascript" src="scripts/palette.js"></script>
+  <script type="text/javascript" src="scripts/polylabel.js"></script>
+  <script type="text/javascript" src="scripts/procsv.js"></script>
+  <script type="text/javascript" src="scripts/map.js"></script>
+  <!-- Stree View-->
+    <script async defer
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7-q_QGpTXK6W46DzWdNeLGWMeJihIPno&callback=initialize">
+    </script>
+  <!-- FIN Stree View-->
+<!--Searcher-->
+<script src="src/leaflet-search.js"></script>
+
+
+
+<script type="text/javascript"> //Leer 
+    
+    var url = window.location.href; // or window.location.href for current url
+    var captured = /fecha=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+    var result = captured ? captured : "Ultimo_Mapa";
+    console.log("Este es el parametro ingresado" + result);
+</script>
+
+
+<!-- Control que añade el marker en la posicion que deseas-->
+	<script type="text/javascript">
+		
+		//add standard controls
+		L.control.coordinates().addTo(map);
+		//add configured controls
+		L.control.coordinates({
+			position:"topright",
+			decimals:4,
+			decimalSeperator:".",
+			labelTemplateLng:"| Lon: {x}",
+			labelTemplateLat:"Lat: {y}",
+			useLatLngOrder: true
+		}).addTo(map);
+	//	L.control.coordinates({
+	//			position:"topright",
+	//			useDMS: false,
+	//			labelTemplateLat:"N {y}",
+	//			labelTemplateLng:"E {x}",
+	//			useLatLngOrder:f
+	//		}).addTo(map);
+	</script>
+
+<!-- Añadiendo control para mostrat elevacion-->
+
+<!--Searcher-->
+<script src="Easy_Button/easy-button.js"></script>
+
+	<script type="text/javascript">
+L.easyButton( '<span class="star">&starf;</span>', function(){
+  console.log('Se hizo click en el boton de elevacion');
+  
+  // Ahora la petición de las elevaciones
+  $.ajax({
+  url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/elevation/json?path=36.578581,-118.291994|36.23998,-116.83171&samples=20&key=AIzaSyC7-q_QGpTXK6W46DzWdNeLGWMeJihIPno",
+  dataType: "json",
+  success: function(resultado){
+    console.log(resultado);
+
+  }
+})
+    console.log('Se hizo la petición del json');
+  
+  
+}).addTo(map);
+   </script>
+   
+ <!-- Para cada poligono mostrar perfil de elevacion-->  
+   <script type="text/javascript">
+   
+    var punto0= new Array(3);
+    var punto1= new Array(3);
+    var punto2= new Array(3);
+    var punto3= new Array(3);
+    var punto4= new Array(3);
+    var punto5= new Array(3);
+    var punto6= new Array(3);
+    var punto7= new Array(3);
+    var punto8= new Array(3);
+    var punto9= new Array(3);
+    var punto10= new Array(3);
+    var punto11= new Array(3);
+    var punto12= new Array(3);
+    var punto13= new Array(3);
+    var punto14= new Array(3);
+    var punto15= new Array(3);
+    var punto16= new Array(3);
+    var punto17= new Array(3);
+    var punto18= new Array(3);
+    var punto19= new Array(3);
+    var punto20= new Array(3);
+
+    var todas_altitudes = new Array(punto0,punto1,punto2,punto3,punto4,punto5,punto6,punto7,punto8,punto9,punto10,punto11,punto12,punto13,punto14,punto15,punto16,punto17,punto18,punto19,punto20);
+    
+   function mostrarPerfil(radio,az,lat,lon) {
+    
+    
+    console.log("azimuth"+az);
+    
+    (radio > 0) ? radio = radio * 2 : radio = 1.5;
+    rlat=radio/6378*57.29577951;
+    rlon= rlat/Math.cos(lat*0.0174532925199433);
+    angle=-az+90;
+    lon2= lon+(rlon*Math.cos(angle*0.0174532925199433));
+    lat2=lat+(rlat*Math.sin(angle*0.0174532925199433));
+    
+    
+    // Ahora la petición de las elevaciones
+  $.ajax({
+  url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/elevation/json?path=" + lat +","+lon + "|" + lat2 + ","+ lon2 + "&samples=21&key=AIzaSyC7-q_QGpTXK6W46DzWdNeLGWMeJihIPno",
+  dataType: "json",
+  success: function(resultado){
+   
+   
+   
+    punto0[0]=resultado.results[0].location.lng
+    punto0[1]=resultado.results[0].location.lat
+    punto0[2]=resultado.results[0].elevation
+    
+    todas_altitudes[0]= punto0;
+    
+    punto1[0]=resultado.results[1].location.lng
+    punto1[1]=resultado.results[1].location.lat
+    punto1[2]=resultado.results[1].elevation
+    
+    todas_altitudes[1]= punto1;
+    
+    punto2[0]=resultado.results[2].location.lng
+    punto2[1]=resultado.results[2].location.lat
+    punto2[2]=resultado.results[2].elevation
+    
+    todas_altitudes[2]= punto2;
+    
+    punto3[0]=resultado.results[3].location.lng
+    punto3[1]=resultado.results[3].location.lat
+    punto3[2]=resultado.results[3].elevation
+    
+    todas_altitudes[3]= punto3;
+    
+    punto4[0]=resultado.results[4].location.lng
+    punto4[1]=resultado.results[4].location.lat
+    punto4[2]=resultado.results[4].elevation
+    
+    todas_altitudes[4]= punto4;
+    
+    punto5[0]=resultado.results[5].location.lng
+    punto5[1]=resultado.results[5].location.lat
+    punto5[2]=resultado.results[5].elevation
+    
+    todas_altitudes[5]= punto5;
+    
+    punto6[0]=resultado.results[6].location.lng
+    punto6[1]=resultado.results[6].location.lat
+    punto6[2]=resultado.results[6].elevation
+    
+    todas_altitudes[6]= punto6;
+    
+    punto7[0]=resultado.results[7].location.lng
+    punto7[1]=resultado.results[7].location.lat
+    punto7[2]=resultado.results[7].elevation
+    
+    todas_altitudes[7]= punto7;
+    
+    punto8[0]=resultado.results[8].location.lng
+    punto8[1]=resultado.results[8].location.lat
+    punto8[2]=resultado.results[8].elevation
+    
+    todas_altitudes[8]= punto8;
+    
+    punto9[0]=resultado.results[9].location.lng
+    punto9[1]=resultado.results[9].location.lat
+    punto9[2]=resultado.results[9].elevation
+    
+    todas_altitudes[9]= punto9;
+    
+    punto10[0]=resultado.results[10].location.lng
+    punto10[1]=resultado.results[10].location.lat
+    punto10[2]=resultado.results[10].elevation
+    
+    todas_altitudes[10]= punto10;
+    
+    punto11[0]=resultado.results[11].location.lng
+    punto11[1]=resultado.results[11].location.lat
+    punto11[2]=resultado.results[11].elevation
+    
+    todas_altitudes[11]= punto11;
+    
+    punto12[0]=resultado.results[12].location.lng
+    punto12[1]=resultado.results[12].location.lat
+    punto12[2]=resultado.results[12].elevation
+    
+    todas_altitudes[12]= punto12;
+    
+    punto13[0]=resultado.results[13].location.lng
+    punto13[1]=resultado.results[13].location.lat
+    punto13[2]=resultado.results[13].elevation
+    
+    todas_altitudes[13]= punto13;
+    
+    punto14[0]=resultado.results[14].location.lng
+    punto14[1]=resultado.results[14].location.lat
+    punto14[2]=resultado.results[14].elevation
+    
+    todas_altitudes[14]= punto14;
+    
+    punto15[0]=resultado.results[15].location.lng
+    punto15[1]=resultado.results[15].location.lat
+    punto15[2]=resultado.results[15].elevation
+    
+    todas_altitudes[15]= punto15;
+    
+    punto16[0]=resultado.results[16].location.lng
+    punto16[1]=resultado.results[16].location.lat
+    punto16[2]=resultado.results[16].elevation
+    
+    todas_altitudes[16]= punto16;
+    
+    punto17[0]=resultado.results[17].location.lng
+    punto17[1]=resultado.results[17].location.lat
+    punto17[2]=resultado.results[17].elevation
+    
+    todas_altitudes[17]= punto17;
+    
+    punto18[0]=resultado.results[18].location.lng
+    punto18[1]=resultado.results[18].location.lat
+    punto18[2]=resultado.results[18].elevation
+    
+    todas_altitudes[18]= punto18;
+    
+    
+    punto19[0]=resultado.results[19].location.lng
+    punto19[1]=resultado.results[19].location.lat
+    punto19[2]=resultado.results[19].elevation
+    
+    todas_altitudes[19]= punto19;
+    
+    punto20[0]=resultado.results[20].location.lng
+    punto20[1]=resultado.results[20].location.lat
+    punto20[2]=resultado.results[20].elevation
+    
+    todas_altitudes[20]= punto20;
+    
+    
+  }
+    })
+    
+   
+    console.log(todas_altitudes);
+     
+     el.clear();
+    
+    map.removeLayer(gjl);
+      el.clear();   
+    
+    geojson = {"name":"NewFeatureType","type":"FeatureCollection"
+    ,"features":[
+    {"type":"Feature","geometry":{"type":"LineString","coordinates": todas_altitudes },"properties":null}
+    ]}
+    
+ 
+    console.log([[punto0[0],punto0[1],punto0[2]],[punto1[0],punto1[1],punto1[2]],[punto2[0],punto2[1],punto2[2]],[punto3[0],punto3[1],punto3[2]],[punto4[0],punto4[1],punto4[2]]]);
+    
+    console.log([[punto4[0],punto4[1],punto4[2]],[punto3[0],punto3[1],punto3[2]],[punto2[0],punto2[1],punto2[2]],[punto1[0],punto1[1],punto1[2]],[punto0[0],punto0[1],punto0[2]]]);
+    
+   gjl = L.geoJson(geojson,{
+		    onEachFeature: el.addData.bind(el)
+		}).addTo(map);
+   
+       
+   }
+   
+    
+   
+
+   
+   </script>
+  
+ <!-- Fin Para cada poligono mostrar perfil de elevacion-->
+ 
+ 
+ 
+
+<!-- Aqui es lo necesario para mostrar el cuadro de elevacion -->
+
+<script type="text/javascript">
+
+var geojson = {"name":"NewFeatureType","type":"FeatureCollection"
+,"features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-77.081368,-12.068799,69.462],[-77.07822666732446,-12.06884391089815,72.8566],[-77.07429999999999,-12.0689,81.04914],[-76.94383987860852,-12.179130,20],[-76.94383987860852,-12.179130,20]]},"properties":null}
+]}
+;
+		var el = L.control.elevation({
+  	position: "bottomleft",
+	theme: "steelblue-theme", //default: lime-theme
+	width: 600,
+	height: 125,
+	margins: {
+		top: 10,
+		right: 20,
+		bottom: 30,
+		left: 50
+	},
+	useHeightIndicator: true, //if false a marker is drawn at map position
+	interpolation: "linear", //see https://github.com/mbostock/d3/wiki/SVG-Shapes#wiki-area_interpolate
+	hoverNumber: {
+		decimalsX: 3, //decimals on distance (always in km)
+		decimalsY: 0, //deciamls on hehttps://www.npmjs.com/package/leaflet.coordinatesight (always in m)
+		formatter: undefined //custom formatter function may be injected
+	},
+	xTicks: undefined, //number of ticks in x axis, calculated by default according to width
+	yTicks: undefined, //number of ticks on y axis, calculated by default according to height
+	collapsed: false,  //collapsed mode, show chart on click or mouseover
+	imperial: false    //display imperial units instead of metric
+}		);
+		el.addTo(map);
+		var gjl = L.geoJson(geojson,{
+		    onEachFeature: el.addData.bind(el)
+		}).addTo(map);
+		
+    console.log(geojson);
+
+</script>
+
+</body>
+</html>

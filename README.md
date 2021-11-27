@@ -1,2 +1,2 @@
-- Mapa https://rdiaz.gitlabe2-pages.ext.net.nokia.com/WebCell/
-- Google Sheets  https://docs.google.com/spreadsheets/d/1T5bIqCDQF26u7MYvzvORu04iKNkQBTxo7vjCbZ60mqA/edit#gid=0
+- Mapa https://abelardodv.github.io/WebcellV2/
+- Google Sheets  https://docs.google.com/spreadsheets/d/1YAxVe_gLuBZaJGu2pynupQ_7IQb19OQjrCI4okYYOLs/edit#gid=0

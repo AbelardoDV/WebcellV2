@@ -194,7 +194,7 @@ L.easyButton( '<span class="star">&starf;</span>', function(){
   
   // Ahora la petición de las elevaciones
   $.ajax({
-  url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/elevation/json?path=36.578581,-118.291994|36.23998,-116.83171&samples=20&key=AIzaSyC7-q_QGpTXK6W46DzWdNeLGWMeJihIPno",
+  url: "https://cors-rodolfo.herokuapp.com/https://maps.googleapis.com/maps/api/elevation/json?path=36.578581,-118.291994|36.23998,-116.83171&samples=20&key=AIzaSyC7-q_QGpTXK6W46DzWdNeLGWMeJihIPno",
   dataType: "json",
   success: function(resultado){
     console.log(resultado);
@@ -249,7 +249,7 @@ L.easyButton( '<span class="star">&starf;</span>', function(){
     
     // Ahora la petición de las elevaciones
   $.ajax({
-  url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/elevation/json?path=" + lat +","+lon + "|" + lat2 + ","+ lon2 + "&samples=21&key=AIzaSyC7-q_QGpTXK6W46DzWdNeLGWMeJihIPno",
+  url: "https://cors-rodolfo.herokuapp.com/https://maps.googleapis.com/maps/api/elevation/json?path=" + lat +","+lon + "|" + lat2 + ","+ lon2 + "&samples=21&key=AIzaSyC7-q_QGpTXK6W46DzWdNeLGWMeJihIPno",
   dataType: "json",
   success: function(resultado){
    

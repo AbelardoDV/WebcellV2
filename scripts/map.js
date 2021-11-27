@@ -495,20 +495,20 @@ $(window).on('load', function() {
 });
 
 
-var panorama;
-function initialize(lat, lon) {
-  panorama = new google.maps.StreetViewPanorama(
-    document.getElementById('street-view'),
-    {
-      position: { lat: lat, lng: lon },
-      pov: { heading: 165, pitch: 0 },
-      zoom: 1
-    });
+// var panorama;
+// function initialize(lat, lon) {
+//   panorama = new google.maps.StreetViewPanorama(
+//     document.getElementById('street-view'),
+//     {
+//       position: { lat: lat, lng: lon },
+//       pov: { heading: 165, pitch: 0 },
+//       zoom: 1
+//     });
 
-  document.getElementById('street-view').style.height = "500px";
-  document.getElementById('street-view').style.width = "500px";
+//   document.getElementById('street-view').style.height = "500px";
+//   document.getElementById('street-view').style.width = "500px";
 
-}
+// }
 
 
 

@@ -32,8 +32,8 @@ $(window).on('load', function() {
         $.when(
           $.getJSON(apiUrl + spreadsheetId + '/values/Options?key=' + googleApiKey),
           // $.getJSON(apiUrl + spreadsheetId + '/values/Chapters?key=' + googleApiKey),
-        ).then(function(options, chapters) {
-          initMap(parse(options), parse(chapters))
+        ).then(function(options, []) {
+          initMap(parse(options), [])
         })
 
       } else {

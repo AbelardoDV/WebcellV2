@@ -10,7 +10,7 @@ var constants = {
   _mapTitle: 'Map Title',
   _mapSubtitle: 'Map Subtitle',
   _mapTitleDisplay: 'Display Title',
-	_authorName: 'Author Name',
+	_authorName: 'Rodolfo Diaz',
 	_authorURL: 'Author Email or Website',
   _codeCredit: 'Author Code Credit',
 	_githubRepo: 'Author Code Repo',

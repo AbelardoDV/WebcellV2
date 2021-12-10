@@ -1,0 +1,1 @@
+WebcellV2 was broken due to GoogleSheets api update from v3 to v4, which caused all display configuration to be lost. this is how it used to look

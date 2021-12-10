@@ -1,2 +1,2 @@
-- Mapa https://abelardodv.github.io/WebcellV2/
-- Google Sheets  https://docs.google.com/spreadsheets/d/1YAxVe_gLuBZaJGu2pynupQ_7IQb19OQjrCI4okYYOLs/edit#gid=0
+- Mapa Live:  https://abelardodv.github.io/WebcellV2/
+- Configuration Google Sheets: https://docs.google.com/spreadsheets/d/1YAxVe_gLuBZaJGu2pynupQ_7IQb19OQjrCI4okYYOLs/edit#gid=0

@@ -4,6 +4,8 @@ Working:
 Notes: <br>
  A year ago GoogleSheets API was updated form v3 to v4 which caused all display configuration to be lost. <br>
  
- 
+ Using javascript:
  ![myimage-alt-tag](https://github.com/AbelardoDV/WebcellV2/blob/master/explanation/image2.png)
+ 
+ Using Python + QGIS
   ![myimage-alt-tag](https://github.com/AbelardoDV/WebcellV2/blob/master/explanation/image5.png)
